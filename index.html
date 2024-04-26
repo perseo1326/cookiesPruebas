@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pruebas con cookies</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="https://iweof.sharepoint.com/:u:/r/teams/o365g_all_retes406/Shared%20Documents/MOHA/Apps/IK-Packing_List-main/styles.css?csf=1&web=1&e=bi1O7i">
+</head>
+<body>
+    
+
+
+<div class="centrar">
+    <h1 >Pruebas con cookies</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, vitae!</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem soluta et velit repellat asperiores excepturi, dolor deserunt tenetur quam maxime placeat dignissimos similique veritatis fuga cupiditate atque distinctio? Incidunt, maiores!</p>
+    <button class="custom-button" id="boton">Un Boton</button>
+</div>
+
+<div class="container-row">
+    <p id="texto">texto</p>
+</div>
+
+<div>
+    <p>SameSite attribute</p>
+</div>
+    
+
+<script>
+    const texto = document.getElementById("texto");
+    const boton = document.getElementById("boton");
+    let valor = 1;
+
+    boton.addEventListener("click", () => {
+        texto.innerText = "Valor " + ++valor;
+    });
+
+
+</script>
+</body>
+</html>
