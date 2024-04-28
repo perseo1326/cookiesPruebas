@@ -1,0 +1,459 @@
+
+
+* {
+    --background: white;
+    --first-color: #0057a4;
+    --second-color: #ffdb01;
+    --warning-color: rgba(255, 52, 52, 0.8);
+    --_1000-color: #cdf6cd;
+    --_2000-color: #fec89a;
+    --_3000-color: #d2d9ee;
+    --height-title: 10%;
+    --height-data: 90%;
+    --height-total: 100%;
+    --A4-width: 21cm;
+    --A4-height: 29.7cm;
+    --button-copy-packing-list: 'Copiar Packing List';
+    --button-copy-OR130-report: 'Copiar "OR130"';
+    margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+    font-family: "Noto IKEA", "Noto Sans", "Roboto", "Open Sans", system-ui, sans-serif;
+    font-size: 16px;
+}
+
+/* ***** GENERAL STYLES  ***** */
+
+.no-visible {
+    display: none !important;
+}
+
+.height-100 {
+    height: 100%;
+}
+
+.show-print{
+    display: none;
+}
+
+.centrar {
+    text-align: center;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.margen-bajo-05 {
+    margin-bottom: 0.5em;
+}
+
+.back-1 {
+    background-color: var(--first-color);
+    color: var(--second-color);
+}
+
+/* ***** GENERAL STYLES END ***** */
+
+/* ***** INITIAL SCREEN BOXES STYLES ***** */
+
+html, body.body {
+    height: var(--height-total);
+}
+
+div.box {
+    height: var(--height-total);
+}
+
+div.container-title {
+    height: var(--height-title);
+}
+
+div.start-panel {
+	height: var(--height-data);
+}
+
+.container-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.container-column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ***** INITIAL SCREEN BOXES STYLES END ***** */
+
+/* ***** LOADING FRAME ***** */
+
+div.loading-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    z-index: 5;
+}
+
+div.loading-frame div.loading {
+	position: relative;
+	background-color: var(--first-color);
+    color: var(--second-color);
+    text-align: center;
+    max-width: 40%;
+    margin : auto;
+    top: 50%;
+	/* padding: 2rem ; */
+    border-radius: 5px;
+    transform: translate(-0%, -50%);
+    -webkit-transform: translate(-0%, -50%);
+}
+
+div.loading p {
+    margin: auto;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+h3.add-shipping-title {
+    background-color: var(--second-color);
+    padding: 1em 0em;
+    color: var(--first-color);
+}
+
+div.add-shipping-content {
+    padding: 0.5em;
+}
+
+div.add-shipping-content label {
+    text-align: left;
+    margin: 0.3em;
+}
+
+div.add-shipping-content div {
+    justify-content: space-between;
+}
+
+div.add-shipping-content div input {
+    width: 45%;
+    text-align: center;
+}
+
+div.add-shipping-buttons {
+    padding: 0.5em 0 0.2em 0; 
+}
+
+div.add-shipping-buttons button {
+    border: 1px solid var(--second-color);
+}
+
+
+/* ***** LOADING FRAME END ***** */
+
+
+/* ***** BUTTON STYLES ***** */
+
+.custom-button {
+    display: block;
+    border: 1px solid var(--first-color);
+    border-radius: 4px;
+	background-color: var(--first-color);
+	color: var(--second-color);
+	cursor: pointer;
+	font-size: 1rem;
+	margin: 0.3rem auto;
+	padding: 0.3rem 0.6rem;
+	text-align: center;
+}
+
+.custom-button:hover {
+    background-color: var(--second-color);
+    color: var(--first-color);
+    border: 1px solid var(--first-color);
+}
+
+/* ***** BUTTON STYLES END ***** */
+
+h1 {
+    text-align: center;
+    font-size: 2em;
+    padding: 0.5em 0.5em 0 0.5em;
+}
+
+a {
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+h6.version {
+    text-align: center;
+    font-weight: bolder;
+    padding: 0 1em;
+    font-weight: lighter;
+    font-size: 0.7em;
+}
+
+/* ***** SECTIONS AND CONTENT ***** */
+
+div.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    overflow-y: auto;
+}
+
+    /* ***** SECTIONS AND CONTENT - Shipments Table ***** */
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: var(--background);
+    }
+
+    table tr th {
+        background-color: var(--first-color);
+        color: var(--second-color);
+        font-weight: bold;
+        padding: 0.4em;
+    }
+
+    table tbody#shipments tr:hover {
+        background-color: var(--second-color);
+    }
+
+    table tbody#shipments tr td {
+        padding: 0 0.4em;
+        border: 1px solid gray;
+    }
+
+    table tbody#shipments tr td.selection label i {
+        width: 100%;
+        height: 100%;
+    }
+    
+    table tbody#shipments tr td.selection label.copy-shipment {
+        background-color: #80ed99;
+    }
+
+    table tbody#shipments tr td.selection  {
+        cursor: pointer;
+        padding: 0;
+    }
+    
+    table tbody#shipments tr:hover td.selection  {
+        background-color: var(--background);
+    }
+    
+    table tbody#shipments tr td.selection label {
+        text-align: center;
+        display: block;
+        height: 100%;
+    }
+    
+    table tbody#shipments tr td.selection label i {
+        font-size: 1.2em;
+        line-height: 1.5em;
+        color: var(--first-color);
+    }
+
+    table tbody#shipments tr td.selection input[type='checkbox']:checked + label {
+        background-color: var(--first-color);
+    }
+    
+    table tbody#shipments tr td.selection input[type='checkbox']:checked + label i {
+        color: var(--second-color);
+    }
+
+    table tbody#shipments tr.plants {
+        background-color: var(--warning-color);
+    }
+    
+    span svg {
+        vertical-align: text-bottom;
+        width: 1.2em;
+    }
+
+    span:hover svg {
+        background-color: var(--second-color);
+    }
+    
+    span:hover svg g {
+        fill: var(--first-color);
+    }
+
+    /* ***** SECTIONS AND CONTENT - Shipments Commands ***** */
+
+
+    div.content div.element div.shipments-commands {
+        padding: 0.2em;
+    }
+    
+    div.content div.element div.shipments-commands p {
+        margin-bottom: 0.5em;
+    }
+
+    div.content div.element div.shipments-commands fieldset  {
+        border: 2px solid var(--first-color);
+    }
+    
+    ._1000 {
+        background-color: var(--_1000-color);
+        color: black;
+    }
+    
+    ._2000 {
+        background-color: var(--_2000-color);
+        color: black;
+    }
+    
+    ._3000 {
+        background-color: var(--_3000-color);
+        color: black;
+    }
+
+    /* ***** SECTIONS AND CONTENT - Report OR130  ***** */
+
+    div.report-load {
+        margin-top: 2em;
+    }
+
+/* ***** SECTIONS AND CONTENT END ***** */
+
+
+/* ***** 2th PART REPORT CONTENT ***** */
+
+    div.element div.card {
+        background-color: lightblue;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 4px;
+        padding: 0.5em 1em;
+        height: 15em;
+        width: 12em;
+        cursor: pointer;
+        margin: auto;
+    }
+
+    div.element div.card:hover {
+        background-color: var(--first-color);
+        color: var(--second-color);
+    }
+
+
+    div.element div.card div h3 {
+        font-size: 1.17em;
+        padding: 0.3em 0;
+    }
+
+    div.element div.card div.card-content {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    div.element div.card div.card-content i {
+        display: block;
+        font-size: 3em;
+        color: var(--first-color);
+    }
+    
+    div.element div.card:hover div.card-content i {
+        color: var(--second-color);
+    }
+
+    a.macro-link {
+        padding-top: 2em;
+        background-color: red;
+    }
+
+/* ***** 2th PART REPORT CONTENT - Panel frame ***** */
+
+    div#report-frame {
+        display: flex;
+        z-index: 5;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* close button :right up corner */
+    div#report-frame div.close-report-frame {
+        position: absolute;
+        top: 2.5em;
+        right: 3em;
+    }
+
+    div#report-frame div.close-report-frame i {
+        color: var(--first-color);
+        font-size: 2em;
+    }
+
+    div#report-frame div.close-report-frame:hover i {
+        font-weight: bolder;
+    }
+    
+    /* close button :right up corner END */
+
+    /* copy button :right down corner */
+
+    div#report-content div.copy-report-button {
+        position: absolute;
+        right: 3em;
+        bottom: 3em;
+        z-index: 5;
+    }
+    
+    div#report-content div.copy-report-button div {
+        padding: 0.2em;
+    }
+
+    /* copy button packing list */
+    div#report-content div.copy-report-button div#copy-packing-list-button:hover label::before {
+        content: var(--button-copy-packing-list);
+    }
+
+    /* copy button OR130 report  */
+    div#report-content div.copy-report-button div#copy-report-button:hover label::before {
+        content: var(--button-copy-OR130-report);
+    }
+
+    div#report-content div.copy-report-button div label i {
+        font-size: 1.3em;
+    }
+
+    /* copy button :right down corner END */
+    /* ***** 2th PART REPORT CONTENT - Results Panel ***** */
+
+    div#report-frame div.report-panel {
+        width: 95%;
+        margin: auto;
+        height: 100%;
+        overflow-y: scroll;
+    }
+    
+    /* ***** 2th PART REPORT CONTENT - Results Panel END ***** */
+    
+    /* ***** 2th PART REPORT CONTENT - Packing list Panel ***** */
+    
+    
+    /* ***** 2th PART REPORT CONTENT - Report Panel ***** */
+
+    table tbody#report-data tr:nth-last-of-type(2n+0) {
+        background-color: lightgray;
+    }
+    
+    table tbody#report-data tr td {
+        padding: 0 0.1em;
+    }
+
+/* ***** 2th PART REPORT CONTENT END ***** */
